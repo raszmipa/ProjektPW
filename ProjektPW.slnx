@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DAOMock2/DAOMock2.csproj" />
+  <Project Path="DOAMock/DAOMock.csproj" />
+  <Project Path="Interfaces/Interfaces.csproj" />
+  <Project Path="ProjektPW/ProjektPW.csproj" />
+</Solution>
