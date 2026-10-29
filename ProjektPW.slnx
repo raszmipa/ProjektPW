@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="BLC/BLC.csproj" Id="9974d292-c8ea-4be3-bb29-eaa81b2730b0" />
   <Project Path="DAOMock2/DAOMock2.csproj" />
   <Project Path="DOAMock/DAOMock.csproj" />
   <Project Path="Interfaces/Interfaces.csproj" />

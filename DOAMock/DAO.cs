@@ -6,8 +6,8 @@ namespace DAOMock
 {
     public class DAO : IDAO
     {
-        private IProducer[] producers;
-        private IProduct[] products;
+        private List<IProducer> producers;
+        private List<IProduct> products;
 
         public DAO()
         {
@@ -15,9 +15,9 @@ namespace DAOMock
             IProducer p2 = new Producer { Id = 2, Name = "Feuerland Spiele", Country = "Niemcy" };
             IProducer p3 = new Producer { Id = 3, Name = "Dire Wolf", Country = "USA" };
 
-            producers = new IProducer[] { p1, p2, p3 };
+            producers = new List<IProducer> { p1, p2, p3 };
 
-            products = new IProduct[]
+            products = new List<IProduct>
             {
                 new Product
                 {

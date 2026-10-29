@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Interfaces;
 
 namespace ProjektPW
@@ -7,25 +8,25 @@ namespace ProjektPW
     {
         public static void Main(string[] args)
         {
-            // Odpowiedź na Zadanie 8: Dzięki interfejsom podmiana bazy danych z DAOMock na DAOMock2
-            // wymaga zmiany wyłącznie w JEDNYM miejscu (w poniższej linijce przy tworzeniu obiektu):
-            IDAO dao = new DAOMock.DAO();
-            // IDAO dao = new DAOMock2.DAO();
+            string libraryName = ConfigurationManager.AppSettings["DAOLibraryName"];
+            Console.WriteLine($"=== Wczytywanie bazy z pliku: {libraryName} ===\n");
 
-            Console.WriteLine("DOSTĘPNE MECHANIKI GIER");
+            BLC.BLC blc = BLC.BLC.GetInstance(libraryName);
+
+            Console.WriteLine("=== DOSTĘPNE MECHANIKI GIER ===");
             foreach (string mechanicName in Enum.GetNames(typeof(GameMechanic)))
             {
                 Console.WriteLine($"- {mechanicName}");
             }
 
-            Console.WriteLine("\nPRODUCENCI");
-            foreach (IProducer producer in dao.GetAllProducers())
+            Console.WriteLine("\n=== PRODUCENCI ===");
+            foreach (IProducer producer in blc.GetProducers())
             {
                 Console.WriteLine(producer);
             }
 
-            Console.WriteLine("\nGRY PLANSZOWE");
-            foreach (IProduct product in dao.GetAllProducts())
+            Console.WriteLine("\n=== PRODUKTY (GRY PLANSZOWE) ===");
+            foreach (IProduct product in blc.GetProducts())
             {
                 Console.WriteLine(product);
             }
